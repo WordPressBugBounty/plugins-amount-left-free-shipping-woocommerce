@@ -1,15 +1,15 @@
 <?php
 /**
- * Cost of Goods for WooCommerce - Compatibility Settings.
+ * Amount Left for Free Shipping for WooCommerce - Compatibility Settings.
  *
- * @version 2.5.1
+ * @version 2.5.3
  * @since   2.5.1
  * @author  WPFactory
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-if ( ! class_exists( 'Alg_WC_Cost_of_Goods_Settings_Compatibility' ) ) :
+if ( ! class_exists( 'Alg_WC_Left_To_Free_Shipping_Settings_Compatibility' ) ) :
 
 	class Alg_WC_Left_To_Free_Shipping_Settings_Compatibility extends Alg_WC_Left_To_Free_Shipping_Settings_Section {
 
