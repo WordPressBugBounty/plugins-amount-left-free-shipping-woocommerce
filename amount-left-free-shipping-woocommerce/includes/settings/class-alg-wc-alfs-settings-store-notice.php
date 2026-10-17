@@ -2,7 +2,7 @@
 /**
  * Amount Left for Free Shipping for WooCommerce - Store Notice Section Settings.
  *
- * @version 2.1.8
+ * @version 2.5.6
  * @since   1.6.0
  * @author  WPFactory
  */
@@ -28,7 +28,7 @@ class Alg_WC_Left_To_Free_Shipping_Settings_Store_Notice extends Alg_WC_Left_To_
 	/**
 	 * get_settings.
 	 *
-	 * @version 2.1.8
+	 * @version 2.5.6
 	 * @since   1.6.0
 	 */
 	function get_settings() {
@@ -36,6 +36,7 @@ class Alg_WC_Left_To_Free_Shipping_Settings_Store_Notice extends Alg_WC_Left_To_
 			array(
 				'title'    => __( 'Default WooCommerce notice', 'amount-left-free-shipping-woocommerce' ),
 				'type'     => 'title',
+				/* translators: %s: Option name. */
 				'desc'     => sprintf( __( 'You may want to set the %s option along with this option.', 'amount-left-free-shipping-woocommerce' ), '<strong>"General > Hide the amount left text > By cart amount"</strong>' ),
 				'id'       => 'alg_wc_left_to_free_shipping_default_notice_opt',
 			),
@@ -56,12 +57,14 @@ class Alg_WC_Left_To_Free_Shipping_Settings_Store_Notice extends Alg_WC_Left_To_
 				'type'     => 'textarea',
 				'css'      => 'width:100%;height:100px;',
 				'alg_wc_alfs_raw' => true,
+				'custom_attributes' => apply_filters( 'alg_wc_left_to_free_shipping_settings', array( 'disabled' => 'disabled' ) ),
 			),
 			array(
 				'title'           => __( 'Notice type', 'amount-left-free-shipping-woocommerce' ),
 				'id'              => 'alg_wc_left_to_free_shipping_default_notice_type',
 				'default'         => 'notice',
 				'type'            => 'select',
+				'custom_attributes' => apply_filters( 'alg_wc_left_to_free_shipping_settings', array( 'disabled' => 'disabled' ) ),
 				'options'         => array(
 					'notice'  => __( 'Notice', 'amount-left-free-shipping-woocommerce' ),
 					'error'   => __( 'Error', 'amount-left-free-shipping-woocommerce' ),
@@ -76,16 +79,17 @@ class Alg_WC_Left_To_Free_Shipping_Settings_Store_Notice extends Alg_WC_Left_To_
 				'default'  => '',
 				'type'     => 'multiselect',
 				'options'      => array(
-					'is_shop'             => __( 'Is Shop', 'popup-notices-for-woocommerce' ),
-					'is_product_category' => __( 'Is Product Category', 'popup-notices-for-woocommerce' ),
-					'is_product_tag'      => __( 'Is Product Tag', 'popup-notices-for-woocommerce' ),
-					'is_product'          => __( 'Is Product', 'popup-notices-for-woocommerce' ),
-					'is_cart'             => __( 'Is Cart', 'popup-notices-for-woocommerce' ),
-					'is_checkout'         => __( 'Is Checkout', 'popup-notices-for-woocommerce' ),
-					'is_account_page'     => __( 'Is Account Page', 'popup-notices-for-woocommerce' ),
-					'is_wc_endpoint_url'  => __( 'Is WC Endpoint URL', 'popup-notices-for-woocommerce' ),
+					'is_shop'             => __( 'Is Shop', 'amount-left-free-shipping-woocommerce' ),
+					'is_product_category' => __( 'Is Product Category', 'amount-left-free-shipping-woocommerce' ),
+					'is_product_tag'      => __( 'Is Product Tag', 'amount-left-free-shipping-woocommerce' ),
+					'is_product'          => __( 'Is Product', 'amount-left-free-shipping-woocommerce' ),
+					'is_cart'             => __( 'Is Cart', 'amount-left-free-shipping-woocommerce' ),
+					'is_checkout'         => __( 'Is Checkout', 'amount-left-free-shipping-woocommerce' ),
+					'is_account_page'     => __( 'Is Account Page', 'amount-left-free-shipping-woocommerce' ),
+					'is_wc_endpoint_url'  => __( 'Is WC Endpoint URL', 'amount-left-free-shipping-woocommerce' ),
 				),
 				'class'    => 'chosen_select',
+				'custom_attributes' => apply_filters( 'alg_wc_left_to_free_shipping_settings', array( 'disabled' => 'disabled' ) ),
 			),
 			array(
 				'type'     => 'sectionend',
@@ -94,6 +98,7 @@ class Alg_WC_Left_To_Free_Shipping_Settings_Store_Notice extends Alg_WC_Left_To_
 			array(
 				'title'    => __( 'Site-wide notice', 'amount-left-free-shipping-woocommerce' ),
 				'desc'     => __( 'Site-wide notice.', 'amount-left-free-shipping-woocommerce' ) . ' ' .
+				              /* translators: %s: Option name. */
 				              sprintf( __( 'You may also want to enable %s option for this.', 'amount-left-free-shipping-woocommerce' ), '<strong>"Advanced > AJAX"</strong>' ),
 				'type'     => 'title',
 				'id'       => 'alg_wc_left_to_free_shipping_store_notice_options',
@@ -115,6 +120,7 @@ class Alg_WC_Left_To_Free_Shipping_Settings_Store_Notice extends Alg_WC_Left_To_
 				'type'     => 'textarea',
 				'css'      => 'width:100%;height:100px;',
 				'alg_wc_alfs_raw' => true,
+				'custom_attributes' => apply_filters( 'alg_wc_left_to_free_shipping_settings', array( 'disabled' => 'disabled' ) ),
 			),
 			array(
 				'title'    => __( 'Placement hook', 'amount-left-free-shipping-woocommerce' ),
@@ -122,6 +128,7 @@ class Alg_WC_Left_To_Free_Shipping_Settings_Store_Notice extends Alg_WC_Left_To_
 				'id'       => 'alg_wc_left_to_free_shipping_info_placement_store_notice',
 				'default'  => 'wp_footer',
 				'type'     => 'text',
+				'custom_attributes' => apply_filters( 'alg_wc_left_to_free_shipping_settings', array( 'disabled' => 'disabled' ) ),
 			),
 			array(
 				'title'    => __( 'Animation', 'amount-left-free-shipping-woocommerce' ),
@@ -129,6 +136,7 @@ class Alg_WC_Left_To_Free_Shipping_Settings_Store_Notice extends Alg_WC_Left_To_
 				'id'       => 'alg_wc_left_to_free_shipping_info_animate_store_notice',
 				'default'  => 'no',
 				'type'     => 'checkbox',
+				'custom_attributes' => apply_filters( 'alg_wc_left_to_free_shipping_settings', array( 'disabled' => 'disabled' ) ),
 			),
 			array(
 				'title'    => __( 'Auto hide time', 'amount-left-free-shipping-woocommerce' ),
@@ -137,7 +145,7 @@ class Alg_WC_Left_To_Free_Shipping_Settings_Store_Notice extends Alg_WC_Left_To_
 				'id'       => 'alg_wc_left_to_free_shipping_info_store_notice_hide',
 				'default'  => 0,
 				'type'     => 'number',
-				'custom_attributes' => array( 'min' => 0 ),
+				'custom_attributes' => array_merge( array( 'min' => 0 ), array_filter( (array) apply_filters( 'alg_wc_left_to_free_shipping_settings', array( 'disabled' => 'disabled' ) ) ) ),
 			),
 			array(
 				'title'    => __( 'Position', 'amount-left-free-shipping-woocommerce' ),
@@ -145,6 +153,7 @@ class Alg_WC_Left_To_Free_Shipping_Settings_Store_Notice extends Alg_WC_Left_To_
 				'default'  => 'bottom',
 				'type'     => 'select',
 				'class'    => 'chosen_select',
+				'custom_attributes' => apply_filters( 'alg_wc_left_to_free_shipping_settings', array( 'disabled' => 'disabled' ) ),
 				'options'  => array(
 					'bottom' => __( 'Bottom', 'amount-left-free-shipping-woocommerce' ),
 					'top'    => __( 'Top', 'amount-left-free-shipping-woocommerce' ),
@@ -155,12 +164,14 @@ class Alg_WC_Left_To_Free_Shipping_Settings_Store_Notice extends Alg_WC_Left_To_
 				'id'       => 'alg_wc_left_to_free_shipping_info_back_color_store_notice',
 				'default'  => '#3d9cd2',
 				'type'     => 'color',
+				'custom_attributes' => apply_filters( 'alg_wc_left_to_free_shipping_settings', array( 'disabled' => 'disabled' ) ),
 			),
 			array(
 				'title'    => __( 'Text color', 'amount-left-free-shipping-woocommerce' ),
 				'id'       => 'alg_wc_left_to_free_shipping_info_text_color_store_notice',
 				'default'  => '#fff',
 				'type'     => 'color',
+				'custom_attributes' => apply_filters( 'alg_wc_left_to_free_shipping_settings', array( 'disabled' => 'disabled' ) ),
 			),
 			array(
 				'title'    => __( 'Font size', 'amount-left-free-shipping-woocommerce' ),
@@ -168,6 +179,7 @@ class Alg_WC_Left_To_Free_Shipping_Settings_Store_Notice extends Alg_WC_Left_To_
 				'id'       => 'alg_wc_left_to_free_shipping_info_font_size_store_notice',
 				'default'  => '16',
 				'type'     => 'number',
+				'custom_attributes' => apply_filters( 'alg_wc_left_to_free_shipping_settings', array( 'disabled' => 'disabled' ) ),
 			),
 			array(
 				'title'    => __( 'Font weight', 'amount-left-free-shipping-woocommerce' ),
@@ -175,6 +187,7 @@ class Alg_WC_Left_To_Free_Shipping_Settings_Store_Notice extends Alg_WC_Left_To_
 				'id'       => 'alg_wc_left_to_free_shipping_info_font_weight_store_notice',
 				'default'  => '400',
 				'type'     => 'number',
+				'custom_attributes' => apply_filters( 'alg_wc_left_to_free_shipping_settings', array( 'disabled' => 'disabled' ) ),
 			),
 			array(
 				'title'    => __( 'Text alignment', 'amount-left-free-shipping-woocommerce' ),
@@ -182,6 +195,7 @@ class Alg_WC_Left_To_Free_Shipping_Settings_Store_Notice extends Alg_WC_Left_To_
 				'default'  => 'left',
 				'type'     => 'select',
 				'class'    => 'chosen_select',
+				'custom_attributes' => apply_filters( 'alg_wc_left_to_free_shipping_settings', array( 'disabled' => 'disabled' ) ),
 				'options'  => array(
 					'left'    => __( 'Left', 'amount-left-free-shipping-woocommerce' ),
 					'right'   => __( 'Right', 'amount-left-free-shipping-woocommerce' ),
@@ -191,10 +205,12 @@ class Alg_WC_Left_To_Free_Shipping_Settings_Store_Notice extends Alg_WC_Left_To_
 			),
 			array(
 				'title'    => __( 'Padding', 'amount-left-free-shipping-woocommerce' ),
+				/* translators: %s: Documentation link. */
 				'desc'     => sprintf( __( 'Look for %s if you want help configuring the padding.', 'amount-left-free-shipping-woocommerce' ), '<a href="https://www.w3schools.com/css/css_padding.asp" target="_blank">' . __( 'padding shorthand', 'amount-left-free-shipping-woocommerce' ) . '</a>' ),
 				'id'       => 'alg_wc_left_to_free_shipping_info_padding_store_notice',
 				'default'  => '16px 23px',
 				'type'     => 'text',
+				'custom_attributes' => apply_filters( 'alg_wc_left_to_free_shipping_settings', array( 'disabled' => 'disabled' ) ),
 			),
 			array(
 				'type'     => 'sectionend',
